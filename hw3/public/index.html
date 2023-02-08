@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <! ALexander Nastase>
+    <head>
+        <link rel="stylesheet" href="stylesheets/style.css" />
+        <script 
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/>
+ </script>
+    </head>
+    <body>
+        <! Title On the Page>
+        <h1>Cheesecake Order Form</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" height="150px" width="150px">
+        <! table to align Quantity and Toppings sections>
+        <div id="form_section" name="form_section">
+        <table>
+            <tr>
+                <td>
+                    <! labels for Quanity and Toppings sections>
+                        <label> Quantity</label>
+                </td>
+                <td>       
+                        <label>Topping</label>  
+                        <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <! Form to select quantity of cheesecake>
+                    <form id="number_cheesecake">  
+                        <select id="quantity">  
+                        <option name="num" value="1">1</option>  
+                        <option name="num" value="2">2</option> 
+                        <option name="num" value="3">3</option>  
+                        <option name="num" value="4">4</option>
+                        </select>  
+                    </form>
+                </td>
+                <td>
+                    <! topping radio buttons>
+                    <form id="topping">
+                        <input type="radio" checked=true id="plain" name="type" value="Plain">
+                        Plain
+                        <br>
+                        <input type="radio"  id="cherry" name="type" value="Cherry"> 
+                        Cherry 
+                        <br>
+                        <input type="radio" id="chocolate" name="type" value="Chocolate">
+                        Chocolate 
+                        <br>   
+                    </form>    
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div>
+            <label>Notes:</label>
+            <br>
+            <! text area for delivery instructions>
+            <textarea id="requests" name="requests" placeholder="Enter any special instructions here."></textarea>
+        </div>
+        <br>
+        <div>
+            <button id="order" onclick=order()>
+                Order
+            </button>
+            <! script to handle clicking order. Will warn you if you try to request 
+            a vegan cheesecake. So Funny. Then it will hide the order form and 
+            TODO: display thank you, and order summary.>
+        </div>
+        <div>
+            <! total orders counter, with a dropdown menu for each month, and bullets>
+            <h3>
+                Total orders for <div class="dropdown">
+                    <! external resource credit: https://www.w3schools.com/howto/howto_css_dropdown.asp>
+                    <button id="month_button" class="dropbtn" >Jan</button>
+                    <div class="dropdown-content">
+                        <a href="#">Jan</a>
+                        <a href="#">Feb</a>
+                        <a href="#">Mar</a>
+                        <a href="#">Apr</a>
+                        <a href="#">May</a>
+                        <a href="#">Jun</a>
+                        <a href="#">Jul</a>
+                        <a href="#">Aug</a>
+                        <a href="#">Sep</a>
+                        <a href="#">Oct</a>
+                        <a href="#">Nov</a>
+                        <a href="#">Dec</a>
+                    </div>
+                    </div> 
+                    <! script to change the month name from the dropdown menu  >
+                    <script src="javascripts/script.js"></script> 
+            </h3>
+            <ul>
+                <li>11 Cherry</li>
+                <li>17 Chocolate</li>
+                <li>31 Plain</li>
+              </ul>
+        </div>
+    </div>
+    <p id="order_summary">
+    </p>
+    </body>
+</html>
