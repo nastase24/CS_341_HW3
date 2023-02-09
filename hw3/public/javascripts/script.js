@@ -1,3 +1,7 @@
+// ALEXANDER NASTASE
+/* script to handle clicking order. Will warn you if you try to request 
+a vegan cheesecake. So Funny. Then it will hide the order form and 
+TODO: display thank you, and order summary. */
 function order(){
     var textarea = document.getElementById("requests");
     var word = 'vegan';
@@ -28,6 +32,8 @@ function order(){
         $(order_summary).show();
     }
 }
+/* script to change the month name from the dropdown menu
+*/
 $(".dropdown-content a").click(function() {
     var month_button = document.getElementById("month_button");
     $(month_button).text($(this).text());
