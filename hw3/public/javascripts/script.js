@@ -2,6 +2,8 @@
 /* script to handle clicking order. Will warn you if you try to request 
 a vegan cheesecake. So Funny. Then it will hide the order form and 
 TODO: display thank you, and order summary. */
+//var express = require('express');
+
 function order(){
     var textarea = document.getElementById("requests");
     var word = 'vegan';
@@ -34,7 +36,23 @@ function order(){
 }
 /* script to change the month name from the dropdown menu
 */
+
 $(".dropdown-content a").click(function() {
-    var month_button = document.getElementById("month_button");
-    $(month_button).text($(this).text());
+    //var month_button = document.getElementById("month_button");
+    $('#month_button').text($(this).text());
+    post_request_order($(this).text());
 });
+
+function post_request_order(month){
+    //var data;
+    document.getElementById("month_button").innerText = month;
+    list_id = ["cherry_count","chocolate_count","plain_count"];
+    $.post("/orders",{month: month},function(data){
+        console.log("data");
+        var data1 = (data['data']);
+        //print(data)
+        for(let i = 0; i < list_id.length;i++){
+            document.getElementById(list_id[i]).innerHTML = data1[i].quantity + " " + data1[i].toppings;
+        }
+    });
+}

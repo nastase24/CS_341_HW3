@@ -6,7 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+//Added variable to link the orders.js file
+var orderRouter = require('./routes/orders');
 var app = express();
 
 // view engine setup
@@ -21,7 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+//adds url that the orders.js will handle things from
+app.use('/orders',orderRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
